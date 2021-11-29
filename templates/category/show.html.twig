@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    {% if programs %}
+        <ul>
+            {% for program in programs %}
+                <li>{{ program.id }} : <a href="{{ path("program_show", {id: program.id }) }}">{{ program.title }}</a> :</li>
+                <img src="{{ program.poster }}" alt="{{ program.title }}">
+                <p>{{ program.summary }}</p>
+            {% endfor %}
+        </ul>
+    {% else %}
+        rien a afficher
+    {% endif %}
+{% endblock %}
